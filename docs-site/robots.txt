@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alexandro.net/docs/vanilla/parse-link-header/sitemap.xml
+

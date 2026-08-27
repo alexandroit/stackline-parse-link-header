@@ -1,0 +1,38 @@
+# @stackline/parse-link-header {{PACKAGE_VERSION}}
+
+Purpose: parse an HTTP Link response header into a plain object keyed by rel.
+
+Compatibility baseline: parse-link-header@2.0.0.
+
+Preserved behavior:
+- callable CommonJS export;
+- null for empty and silently rejected over-limit input;
+- URL, relation, query values, and extension parameters;
+- multi-relation expansion and last-link-wins duplicate relations;
+- historical environment variables and 2,000-character default;
+- index and index.js deep imports.
+
+Additions:
+- native ESM default and named parseLinkHeader exports;
+- first-party TypeScript 3.9/current declarations;
+- per-call maxHeaderLength and throwOnMaxHeaderLengthExceeded;
+- browser loading without process, url, or querystring polyfills.
+
+Security:
+- preserves the upstream mitigation for GHSA-q674-xm3x-2926 / CVE-2021-23490;
+- linear parser scans when callers raise the limit;
+- ignores __proto__, prototype, and constructor from parser-controlled fields.
+
+Verification:
+- 11 adapted upstream tests;
+- 15 focused compatibility/security tests;
+- 1,000 differential HTTP Link headers against 2.0.0;
+- one-million-character linear parser regression;
+- CommonJS, ESM, browser, Node 12-24, TypeScript 3.9/current;
+- package, coverage, clean install, audit, CI, and CodeQL gates.
+
+Install: npm install @stackline/parse-link-header
+Alias: npm install parse-link-header@npm:@stackline/parse-link-header
+Docs: https://alexandro.net/docs/vanilla/parse-link-header/
+Source: https://github.com/alexandroit/stackline-parse-link-header
+

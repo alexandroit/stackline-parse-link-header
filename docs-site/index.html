@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>@stackline/parse-link-header - HTTP Link pagination parser</title>
+  <meta name="description" content="A zero-dependency parse-link-header compatibility package for Node.js, Angular, Vite, Webpack, browsers, ESM, CommonJS, and TypeScript.">
+  <meta name="keywords" content="HTTP Link header, pagination parser, parse-link-header, Angular, Vite, Webpack, TypeScript">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="author" content="Stackline Maintainers">
+  <link rel="canonical" href="https://alexandro.net/docs/vanilla/parse-link-header/">
+  <link rel="alternate" type="text/plain" href="./llms.txt" title="LLM summary">
+  <link rel="alternate" type="text/plain" href="./llms-full.txt" title="LLM reference">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="@stackline/parse-link-header">
+  <meta property="og:description" content="Parse pagination links with legacy API compatibility and browser-safe loading.">
+  <meta property="og:url" content="https://alexandro.net/docs/vanilla/parse-link-header/">
+  <meta property="og:image" content="https://alexandro.net/docs/vanilla/parse-link-header/assets/parse-link-header-workbench.png">
+  <meta property="og:image:alt" content="HTTP Link header parsed into next, previous, and last pagination objects">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="@stackline/parse-link-header">
+  <meta name="twitter:description" content="CommonJS, ESM, browsers, and TypeScript with zero runtime dependencies.">
+  <meta name="twitter:image" content="https://alexandro.net/docs/vanilla/parse-link-header/assets/parse-link-header-workbench.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./analytics.js"></script>
+  <script defer src="./app.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "@stackline/parse-link-header",
+    "version": "{{PACKAGE_VERSION}}",
+    "description": "Compatibility-first HTTP Link header parser for Node.js and browsers.",
+    "codeRepository": "https://github.com/alexandroit/stackline-parse-link-header",
+    "downloadUrl": "https://www.npmjs.com/package/@stackline/parse-link-header",
+    "license": "https://github.com/alexandroit/stackline-parse-link-header/blob/main/LICENSE",
+    "programmingLanguage": ["JavaScript", "TypeScript"],
+    "runtimePlatform": "Node.js 12 through 24 and modern browsers",
+    "url": "https://alexandro.net/docs/vanilla/parse-link-header/"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#workbench">Skip to parser workbench</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="@stackline/parse-link-header home">
+      <span class="brand-mark" aria-hidden="true">&lt;&gt;</span>
+      <span>@stackline/parse-link-header</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#workbench">Workbench</a>
+      <a href="#contract">Contract</a>
+      <a href="#api">API</a>
+      <a href="#proof">Verification</a>
+      <a href="https://github.com/alexandroit/stackline-parse-link-header">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="product-intro" aria-labelledby="page-title">
+      <div class="intro-content">
+        <p class="eyebrow">HTTP pagination utility</p>
+        <h1 id="page-title">@stackline/parse-link-header</h1>
+        <p>Turn a response <code>Link</code> header into familiar <code>next</code>, <code>prev</code>, and <code>last</code> objects. Keep the established API while browser builds lose their Node polyfills.</p>
+        <div class="install-row">
+          <code id="install-command">npm install @stackline/parse-link-header</code>
+          <button type="button" class="compact-button" data-copy="#install-command">Copy install</button>
+        </div>
+        <div class="release-line">
+          <span>v{{PACKAGE_VERSION}}</span>
+          <span>zero runtime dependencies</span>
+          <span>Node.js 12-24</span>
+          <span>TypeScript 3.9+</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-band" id="workbench" aria-labelledby="workbench-title">
+      <div class="section-inner wide">
+        <div class="section-heading">
+          <div><p class="eyebrow dark">Executable behavior</p><h2 id="workbench-title">Link header workbench</h2></div>
+        </div>
+        <div class="control-bar link-controls">
+          <label><span>Maximum characters</span><input id="max-length" type="number" min="0" step="1" value="2000"></label>
+          <label class="toggle-label"><input id="throw-on-limit" type="checkbox"><span>Throw when over limit</span></label>
+          <label><span>Import style</span><select id="module-style"><option value="esm">ESM</option><option value="commonjs">CommonJS</option></select></label>
+          <button type="button" class="primary-button" id="generate-button">Parse header</button>
+        </div>
+
+        <div class="workspace-grid parser-stage">
+          <section class="editor-panel" aria-labelledby="header-input-title">
+            <header><h3 id="header-input-title">HTTP Link header</h3><button type="button" class="text-button" id="reset-button">Reset</button></header>
+            <textarea id="header-input" spellcheck="false">&lt;https://api.example.test/items?page=2&amp;per_page=50&gt;; rel="next", &lt;https://api.example.test/items?page=1&amp;per_page=50&gt;; rel="prev", &lt;https://api.example.test/items?page=8&amp;per_page=50&gt;; rel="last"</textarea>
+          </section>
+          <section class="editor-panel output-panel parser-output" aria-labelledby="parsed-title">
+            <header><h3 id="parsed-title">Relation map</h3><button type="button" class="text-button" data-copy="#result-output">Copy JSON</button></header>
+            <div class="stream-facts"><span id="relation-count">3 relations</span><span id="header-size">0 characters</span><span>plain object</span></div>
+            <pre id="result-output"><code></code></pre>
+          </section>
+        </div>
+        <div class="status-bar" aria-live="polite">
+          <span class="status-indicator" id="status-indicator"></span><strong id="status-text">Header parsed</strong>
+          <span class="status-separator"></span><span id="limit-fact">2,000-character limit</span>
+          <span class="status-separator"></span><span id="runtime-fact">browser-safe configuration</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-band" id="contract" aria-labelledby="contract-title">
+      <div class="section-inner content-grid">
+        <div>
+          <p class="eyebrow dark">Compatibility boundary</p>
+          <h2 id="contract-title">The relation-keyed shape stays put.</h2>
+          <p>Each relation token points to a plain object containing its URL, relation, query values, and extension parameters. Space-separated relations expand; repeated relations keep the later link.</p>
+        </div>
+        <div class="code-surface">
+          <pre><code>{
+  next: {
+    page: "2",
+    per_page: "50",
+    rel: "next",
+    url: "https://api.example.test/items?page=2&amp;per_page=50"
+  }
+}</code></pre>
+          <p>Parser-controlled <code>__proto__</code>, <code>prototype</code>, and <code>constructor</code> keys are ignored. Quoted delimiters remain inside their parameter value.</p>
+          <a class="inline-link" href="./guides/compatibility.md">Read the complete compatibility contract</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-band muted" id="api" aria-labelledby="api-title">
+      <div class="section-inner">
+        <div class="section-heading"><div><p class="eyebrow dark">Public surface</p><h2 id="api-title">One parser, two module systems</h2></div></div>
+        <div class="api-table-wrapper">
+          <table>
+            <thead><tr><th scope="col">Surface</th><th scope="col">Usage</th><th scope="col">Status</th></tr></thead>
+            <tbody>
+              <tr><td>CommonJS</td><td><code>const parse = require('@stackline/parse-link-header')</code></td><td>Historical</td></tr>
+              <tr><td>ESM default</td><td><code>import parse from '@stackline/parse-link-header'</code></td><td>Additive</td></tr>
+              <tr><td>ESM named</td><td><code>import { parseLinkHeader } from '@stackline/parse-link-header'</code></td><td>Additive</td></tr>
+              <tr><td>Per-call options</td><td><code>parse(header, { maxHeaderLength: 8192 })</code></td><td>Additive</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-band" id="proof" aria-labelledby="proof-title">
+      <div class="section-inner proof-grid">
+        <div><p class="eyebrow dark">Release evidence</p><h2 id="proof-title">Compatibility is executable.</h2><p>The release gate exercises valid, malformed, adversarial, browser, compiler, and installed-package paths.</p></div>
+        <dl class="proof-list">
+          <div><dt>1,000</dt><dd>differential Link headers against the frozen 2.0.0 baseline</dd></div>
+          <div><dt>1M</dt><dd>character linear-parser regression when the caller raises the bound</dd></div>
+          <div><dt>3 modes</dt><dd>CommonJS, native ESM, and browser bundle execution</dd></div>
+          <div><dt>0</dt><dd>runtime dependencies in the published package</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="content-band muted" aria-labelledby="migration-title">
+      <div class="section-inner content-grid">
+        <div><p class="eyebrow dark">Drop-in adoption</p><h2 id="migration-title">Keep existing imports.</h2><p>An npm alias changes the implementation without changing <code>require('parse-link-header')</code> or existing default imports.</p></div>
+        <div class="code-surface">
+          <pre id="alias-command"><code>npm install parse-link-header@npm:@stackline/parse-link-header</code></pre>
+          <button type="button" class="compact-button" data-copy="#alias-command">Copy alias install</button>
+          <a class="inline-link" href="./guides/migration.md">Open the migration guide</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-band" aria-labelledby="resources-title">
+      <div class="section-inner resource-grid">
+        <div><p class="eyebrow">Inspect the release</p><h2 id="resources-title">Source, package, license, and machine-readable docs</h2></div>
+        <nav aria-label="Release resources">
+          <a href="https://www.npmjs.com/package/@stackline/parse-link-header">npm</a>
+          <a href="https://github.com/alexandroit/stackline-parse-link-header">GitHub</a>
+          <a href="https://github.com/alexandroit/stackline-parse-link-header/blob/main/LICENSE">MIT license</a>
+          <a href="./llms-full.txt">LLM reference</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>@stackline/parse-link-header</strong><span>Independent maintained continuation of parse-link-header.</span></div>
+    <nav aria-label="Footer navigation"><a href="./guides/third-party-licenses.md">Attribution</a><a href="https://alexandro.net/docs/open-source/">Stackline catalog</a></nav>
+  </footer>
+</body>
+</html>
+

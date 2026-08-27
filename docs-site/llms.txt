@@ -1,0 +1,20 @@
+# @stackline/parse-link-header
+
+Maintained, zero-runtime-dependency continuation of parse-link-header@2.0.0.
+
+Install:
+
+    npm install @stackline/parse-link-header
+
+No-source-change migration:
+
+    npm install parse-link-header@npm:@stackline/parse-link-header
+
+Supports callable CommonJS, default and named ESM, browser bundles, TypeScript
+3.9+, and Node.js 12-24. The relation-keyed pagination output and the default
+2,000-character CVE-2021-23490 mitigation are preserved.
+
+Canonical docs: https://alexandro.net/docs/vanilla/parse-link-header/
+Source: https://github.com/alexandroit/stackline-parse-link-header
+npm: https://www.npmjs.com/package/@stackline/parse-link-header
+
