@@ -11,7 +11,7 @@ npm install parse-link-header@npm:@stackline/parse-link-header
 ```json
 {
   "dependencies": {
-    "parse-link-header": "npm:@stackline/parse-link-header@^1.0.0"
+    "parse-link-header": "npm:@stackline/parse-link-header@^1.0.1"
   }
 }
 ```
