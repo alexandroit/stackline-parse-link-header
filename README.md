@@ -1,21 +1,69 @@
 # @stackline/parse-link-header
 
-[![CI](https://github.com/alexandroit/stackline-parse-link-header/actions/workflows/ci.yml/badge.svg)](https://github.com/alexandroit/stackline-parse-link-header/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/@stackline/parse-link-header.svg)](https://www.npmjs.com/package/@stackline/parse-link-header)
-[![license](https://img.shields.io/npm/l/@stackline/parse-link-header.svg)](LICENSE)
+> Compatibility-first HTTP Link header parser for Node.js and browsers
+
+[![npm version](https://img.shields.io/npm/v/@stackline/parse-link-header.svg?style=flat-square)](https://www.npmjs.com/package/@stackline/parse-link-header)
+[![license](https://img.shields.io/npm/l/@stackline/parse-link-header.svg?style=flat-square)](https://github.com/alexandroit/stackline-parse-link-header/blob/main/LICENSE)
+[![GitHub repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github)](https://github.com/alexandroit/stackline-parse-link-header)
+
+**[Documentation](https://alexandro.net/docs/vanilla/parse-link-header/)** |
+**[npm](https://www.npmjs.com/package/@stackline/parse-link-header)** |
+**[Issues](https://github.com/alexandroit/stackline-parse-link-header/issues)** |
+**[Repository](https://github.com/alexandroit/stackline-parse-link-header)**
+
+**Package version:** `1.0.1`
+
+## Why this package?
 
 Parse HTTP `Link` headers into the relation-keyed pagination object used by
 `parse-link-header@2.0.0`. This independent maintained continuation keeps the
 CommonJS API while adding native ESM, first-party TypeScript declarations,
 browser-safe loading, runtime options, and parser hardening.
 
-## Install
+## Compatibility
+
+| Item | Value |
+| --- | --- |
+| Package | `@stackline/parse-link-header@1.0.1` |
+| Node.js runtime | `>=12` |
+| CommonJS / primary entry | `./index.js` |
+| ES module entry | `./index.mjs` |
+| Type declarations | `./index.d.ts` |
+
+The maintained package preserves the established contract:
+
+- callable CommonJS default export;
+- default and named ESM exports;
+- `null` for empty or silently rejected over-limit input;
+- a plain object keyed by each `rel` token;
+- query values, URL, relation, and extension parameters on each link;
+- arrays for repeated query keys;
+- expansion of space-separated relations;
+- last-link-wins behavior when a relation is repeated;
+- `index` and `index.js` deep imports;
+- the default length bound and historical environment controls.
+
+Intentional hardening discards parser-controlled `__proto__`, `prototype`, and
+`constructor` keys. Quoted parameters correctly retain semicolons, commas, and
+escaped quotes. Malformed links remain ignored rather than crashing the whole
+header.
+
+See [COMPATIBILITY_CONTRACT.md](https://github.com/alexandroit/stackline-parse-link-header/blob/main/COMPATIBILITY_CONTRACT.md) and
+[MIGRATION.md](https://github.com/alexandroit/stackline-parse-link-header/blob/main/MIGRATION.md) for the complete boundary.
+
+## Installation
+
+<a id="install"></a>
+
+### Install
 
 ```bash
 npm install @stackline/parse-link-header
 ```
 
 Keep existing source imports unchanged with an npm alias:
+
+## Usage
 
 ```bash
 npm install parse-link-header@npm:@stackline/parse-link-header
@@ -24,8 +72,6 @@ npm install parse-link-header@npm:@stackline/parse-link-header
 ```js
 const parseLinkHeader = require('parse-link-header')
 ```
-
-## Usage
 
 ```js
 import parseLinkHeader from '@stackline/parse-link-header'
@@ -45,7 +91,11 @@ The named ESM export is also available:
 import { parseLinkHeader } from '@stackline/parse-link-header'
 ```
 
-## Runtime limits
+## Features and Integrations
+
+<a id="runtime-limits"></a>
+
+### Runtime limits
 
 Parsing is bounded to 2,000 characters by default, preserving the mitigation
 introduced upstream for [CVE-2021-23490](https://github.com/advisories/GHSA-q674-xm3x-2926).
@@ -66,49 +116,69 @@ The historical environment variables remain supported:
 Per-call options take precedence and are suitable for browser applications
 where `process.env` is unavailable.
 
-## Compatibility
+<a id="project-documents"></a>
 
-The maintained package preserves the established contract:
+### Project documents
 
-- callable CommonJS default export;
-- default and named ESM exports;
-- `null` for empty or silently rejected over-limit input;
-- a plain object keyed by each `rel` token;
-- query values, URL, relation, and extension parameters on each link;
-- arrays for repeated query keys;
-- expansion of space-separated relations;
-- last-link-wins behavior when a relation is repeated;
-- `index` and `index.js` deep imports;
-- the default length bound and historical environment controls.
+- [Changelog](https://github.com/alexandroit/stackline-parse-link-header/blob/main/CHANGELOG.md)
+- [Compatibility contract](https://github.com/alexandroit/stackline-parse-link-header/blob/main/COMPATIBILITY_CONTRACT.md)
+- [Migration guide](https://github.com/alexandroit/stackline-parse-link-header/blob/main/MIGRATION.md)
+- [Security policy](https://github.com/alexandroit/stackline-parse-link-header/blob/main/SECURITY.md)
+- [Dependency decisions](https://github.com/alexandroit/stackline-parse-link-header/blob/main/DEPENDENCY_DECISIONS.md)
+- [Upstream audit](https://github.com/alexandroit/stackline-parse-link-header/blob/main/UPSTREAM_AUDIT.md)
+- [Third-party licenses](https://github.com/alexandroit/stackline-parse-link-header/blob/main/THIRD_PARTY_LICENSES.md)
 
-Intentional hardening discards parser-controlled `__proto__`, `prototype`, and
-`constructor` keys. Quoted parameters correctly retain semicolons, commas, and
-escaped quotes. Malformed links remain ignored rather than crashing the whole
-header.
+## Security
 
-See [COMPATIBILITY_CONTRACT.md](COMPATIBILITY_CONTRACT.md) and
-[MIGRATION.md](MIGRATION.md) for the complete boundary.
+Review inputs and the package-specific compatibility limits before processing untrusted data. Report suspected vulnerabilities as described in the [security policy](https://github.com/alexandroit/stackline-parse-link-header/blob/main/SECURITY.md).
 
-## Support
+## Local Development
+
+```sh
+git clone https://github.com/alexandroit/stackline-parse-link-header.git
+cd stackline-parse-link-header
+npm ci
+npm run verify
+```
+
+Release tooling uses Node.js 24.20.0 and npm 11.19.0. The consumer runtime contract remains the one documented above.
+
+## Consumer Smoke Test
+
+Run the repository's existing consumer/package check after installing development dependencies:
+
+```sh
+npm run test:smoke
+```
+
+## Release Checklist
+
+Run `npm run verify` and inspect the package contents before release. Publish a new version through the [GitHub Actions publishing workflow](https://github.com/alexandroit/stackline-parse-link-header/actions/workflows/publish.yml), using the SHA-512 digest of the reviewed tarball. Verify the exact published version, tarball integrity, and npm provenance after the run.
+
+## Community and Support
+
+<a id="support"></a>
+
+### Support
 
 - Node.js 12 through 24 are tested.
 - CommonJS, native ESM, and browser bundles are tested.
 - TypeScript 3.9 and the current compiler are tested.
 - The package has zero runtime dependencies.
 
-## Project documents
+Report reproducible package issues in the [issue tracker](https://github.com/alexandroit/stackline-parse-link-header/issues). Use the [security policy](https://github.com/alexandroit/stackline-parse-link-header/blob/main/SECURITY.md) for vulnerability reports.
 
-- [Changelog](CHANGELOG.md)
-- [Compatibility contract](COMPATIBILITY_CONTRACT.md)
-- [Migration guide](MIGRATION.md)
-- [Security policy](SECURITY.md)
-- [Dependency decisions](DEPENDENCY_DECISIONS.md)
-- [Upstream audit](UPSTREAM_AUDIT.md)
-- [Third-party licenses](THIRD_PARTY_LICENSES.md)
+- [Stackline / Alexandro.Net](https://alexandro.net/)
+- [GitHub](https://github.com/alexandroit)
+- [Maintainer LinkedIn](https://www.linkedin.com/in/aleinfo/)
+- [Reddit community: r/Stackline](https://www.reddit.com/r/Stackline/)
 
-## License and attribution
+## License
+
+<a id="license-and-attribution"></a>
+
+### License and attribution
 
 MIT. The original copyright notice for Thorsten Lorenz is preserved in
-[LICENSE](LICENSE). This project is independent and is not affiliated with or
+[LICENSE](https://github.com/alexandroit/stackline-parse-link-header/blob/main/LICENSE). This project is independent and is not affiliated with or
 endorsed by the original author.
-

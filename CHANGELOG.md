@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1] - 2026-09-28
+
+- Organize package documentation, preserve API and migration examples, and add Stackline community links.
+- Improve package discovery keywords with precise domain terms and `stackline`.
+- Pin GitHub Actions release tooling and require an explicit missing-version response before publication.
+
+
 ## 1.0.0 - 2026-08-27
 
 - Preserve the `parse-link-header@2.0.0` callable CommonJS contract.
@@ -13,4 +20,3 @@
   scans when callers intentionally raise the limit.
 - Ignore prototype-sensitive parser-controlled keys.
 - Correct quoted parameter parsing for semicolons, commas, and escaped quotes.
-

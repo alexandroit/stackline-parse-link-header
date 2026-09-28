@@ -1,6 +1,6 @@
 {
   "name": "@stackline/parse-link-header",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Compatibility-first HTTP Link header parser for Node.js and browsers",
   "type": "commonjs",
   "main": "./index.js",
