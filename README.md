@@ -1,17 +1,18 @@
 # @stackline/parse-link-header
 
-> Compatibility-first HTTP Link header parser for Node.js and browsers
+> Compatibility-first HTTP Link header parser for Node.js and browsers.
 
 [![npm version](https://img.shields.io/npm/v/@stackline/parse-link-header.svg?style=flat-square)](https://www.npmjs.com/package/@stackline/parse-link-header)
-[![license](https://img.shields.io/npm/l/@stackline/parse-link-header.svg?style=flat-square)](https://github.com/alexandroit/stackline-parse-link-header/blob/main/LICENSE)
-[![GitHub repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github)](https://github.com/alexandroit/stackline-parse-link-header)
+[![license](https://img.shields.io/npm/l/@stackline/parse-link-header.svg?style=flat-square)](https://github.com/alexandroit/stackline-parse-link-header)
+[![GitHub repository](https://img.shields.io/badge/GitHub-alexandroit%2Fstackline-parse-link-header-181717?style=flat-square&logo=github)](https://github.com/alexandroit/stackline-parse-link-header)
+[![Docs](https://img.shields.io/badge/docs-alexandro.net-0f766e?style=flat-square)](https://alexandro.net/docs/vanilla/parse-link-header/)
+[![Reddit community](https://img.shields.io/badge/community-r%2FStackline-ff4500?style=flat-square&logo=reddit&logoColor=white)](https://www.reddit.com/r/Stackline/)
 
-**[Documentation](https://alexandro.net/docs/vanilla/parse-link-header/)** |
-**[npm](https://www.npmjs.com/package/@stackline/parse-link-header)** |
-**[Issues](https://github.com/alexandroit/stackline-parse-link-header/issues)** |
-**[Repository](https://github.com/alexandroit/stackline-parse-link-header)**
+**[Documentation](https://alexandro.net/docs/vanilla/parse-link-header/)** | **[npm](https://www.npmjs.com/package/@stackline/parse-link-header)** | **[Issues](https://github.com/alexandroit/stackline-parse-link-header/issues)** | **[Repository](https://github.com/alexandroit/stackline-parse-link-header)**
 
-**Package version:** `1.0.1`
+**Current package version:** `1.0.2`
+
+---
 
 ## Why this package?
 
@@ -24,7 +25,7 @@ browser-safe loading, runtime options, and parser hardening.
 
 | Item | Value |
 | --- | --- |
-| Package | `@stackline/parse-link-header@1.0.1` |
+| Package | `@stackline/parse-link-header@1.0.2` |
 | Node.js runtime | `>=12` |
 | CommonJS / primary entry | `./index.js` |
 | ES module entry | `./index.mjs` |
@@ -155,24 +156,6 @@ npm run test:smoke
 
 Run `npm run verify` and inspect the package contents before release. Publish a new version through the [GitHub Actions publishing workflow](https://github.com/alexandroit/stackline-parse-link-header/actions/workflows/publish.yml), using the SHA-512 digest of the reviewed tarball. Verify the exact published version, tarball integrity, and npm provenance after the run.
 
-## Community and Support
-
-<a id="support"></a>
-
-### Support
-
-- Node.js 12 through 24 are tested.
-- CommonJS, native ESM, and browser bundles are tested.
-- TypeScript 3.9 and the current compiler are tested.
-- The package has zero runtime dependencies.
-
-Report reproducible package issues in the [issue tracker](https://github.com/alexandroit/stackline-parse-link-header/issues). Use the [security policy](https://github.com/alexandroit/stackline-parse-link-header/blob/main/SECURITY.md) for vulnerability reports.
-
-- [Stackline / Alexandro.Net](https://alexandro.net/)
-- [GitHub](https://github.com/alexandroit)
-- [Maintainer LinkedIn](https://www.linkedin.com/in/aleinfo/)
-- [Reddit community: r/Stackline](https://www.reddit.com/r/Stackline/)
-
 ## License
 
 <a id="license-and-attribution"></a>
@@ -182,3 +165,22 @@ Report reproducible package issues in the [issue tracker](https://github.com/ale
 MIT. The original copyright notice for Thorsten Lorenz is preserved in
 [LICENSE](https://github.com/alexandroit/stackline-parse-link-header/blob/main/LICENSE). This project is independent and is not affiliated with or
 endorsed by the original author.
+
+## Credits and original authors
+
+- Stackline Maintainers.
+- Thorsten Lorenz.
+- Copyright 2013 Thorsten Lorenz.
+- Stackline maintenance: [Alexandro Paixao Marques](https://www.linkedin.com/in/aleinfo/) and [Stackline contributors](https://github.com/alexandroit).
+
+Original copyright, license notices and contributor acknowledgements remain part of this distribution. Stackline maintenance does not replace authorship of the original work.
+
+## Community and Links
+
+- [Stackline website](https://alexandro.net/)
+- [GitHub projects](https://github.com/alexandroit)
+- [npm packages](https://www.npmjs.com/~alex360qc)
+- [Reddit community — r/Stackline](https://www.reddit.com/r/Stackline/)
+- [Maintainer LinkedIn](https://www.linkedin.com/in/aleinfo/)
+
+Use this repository's issue tracker for reproducible bugs and feature requests. Join r/Stackline for examples, usage questions and release discussions.
