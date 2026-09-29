@@ -1,0 +1,29 @@
+{
+  "repository": "alexandroit/stackline-parse-link-header",
+  "packages": [
+    {
+      "name": "@stackline/parse-link-header",
+      "path": "README.md",
+      "version": "1.0.2",
+      "baselineVersion": "1.0.1",
+      "keywords": [
+        "stackline",
+        "npm-package",
+        "parse-link-header",
+        "nodejs",
+        "browser",
+        "parser",
+        "typescript",
+        "http",
+        "link-header",
+        "pagination",
+        "zero-dependency"
+      ],
+      "homepage": "https://alexandro.net/docs/vanilla/parse-link-header/",
+      "baselineTarball": "https://registry.npmjs.org/@stackline/parse-link-header/-/parse-link-header-1.0.1.tgz",
+      "baselineIntegrity": "sha512-URHjUUJmPwx0ra4XazEYC5dLlti5K6WYL8M1+S6fSLCiiBmWOhiptiJzipJSwApJOrpbZCD6vjy/8FcL5tEGpg==",
+      "expectedSha512": "719539abf86b72cb11dc92f072d04b2442fc569077fcb66fcc117249b26df6d210d8c9e65880aec1ff0a9de36308c2ec8e75befe118964ebdff6c76181cb3847",
+      "tag": "docs-stackline-parse-link-header-v1.0.2"
+    }
+  ]
+}
