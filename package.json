@@ -92,9 +92,9 @@
     "@eslint/js": "10.0.1",
     "c8": "12.0.0",
     "esbuild": "0.28.2",
-    "eslint": "10.9.1",
+    "eslint": "10.12.0",
     "parse-link-header-baseline": "npm:parse-link-header@2.0.0",
-    "publint": "0.3.24",
+    "publint": "0.3.25",
     "typescript": "7.0.2",
     "typescript-3-9": "npm:typescript@3.9.10"
   },
