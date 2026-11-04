@@ -10,7 +10,7 @@
 
 **[Documentation](https://alexandro.net/docs/vanilla/parse-link-header/)** | **[npm](https://www.npmjs.com/package/@stackline/parse-link-header)** | **[Issues](https://github.com/alexandroit/stackline-parse-link-header/issues)** | **[Repository](https://github.com/alexandroit/stackline-parse-link-header)**
 
-**Current package version:** `1.0.3`
+**Current package version:** `1.0.4`
 
 ---
 
@@ -25,7 +25,7 @@ browser-safe loading, runtime options, and parser hardening.
 
 | Item | Value |
 | --- | --- |
-| Package | `@stackline/parse-link-header@1.0.3` |
+| Package | `@stackline/parse-link-header@1.0.4` |
 | Node.js runtime | `>=12` |
 | CommonJS / primary entry | `./index.js` |
 | ES module entry | `./index.mjs` |
